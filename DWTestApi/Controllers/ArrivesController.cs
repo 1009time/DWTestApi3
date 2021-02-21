@@ -13,6 +13,7 @@ namespace DWTestApi.Controllers
     [ApiController]
     public class ArrivesController : ControllerBase
     {
+
         private readonly ArriveDbContext _context;
 
         public ArrivesController(ArriveDbContext context)

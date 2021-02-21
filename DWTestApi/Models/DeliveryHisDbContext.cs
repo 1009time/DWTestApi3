@@ -8,6 +8,7 @@ namespace DWTestApi.Models
 {
     public class DeliveryHisDbContext : DbContext
     {
+
         public DbSet<DeliveryHis> DeliveryHis { get; set; }
 
         public DeliveryHisDbContext(DbContextOptions<DeliveryHisDbContext> options) : base(options)

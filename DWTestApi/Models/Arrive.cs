@@ -7,6 +7,7 @@ namespace DWTestApi.Models
 {
     public class Arrive
     {
+
         public string ArriveId { get; set; }
         public string ORDERLID { get; set; }
         public string DELIVER_ID { get; set; }

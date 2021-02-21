@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DWTestApi.Models
 {
+
     public class ArriveDbContext : DbContext
     {
         public DbSet<Arrive> Arrive { get; set; }

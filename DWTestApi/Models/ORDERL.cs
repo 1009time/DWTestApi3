@@ -7,6 +7,7 @@ namespace DWTestApi.Models
 {
     public class ORDERL
     {
+
         public string ORDERLID { get; set; }
 
         public string BOXID { get; set; }
