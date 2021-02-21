@@ -41,19 +41,36 @@ namespace DWTestApi.Controllers
             return oRDERL;
         }
 
-        //배송기사에게 할당된 주문을 찾는다. GET: api/ORDERLs/DID/5/880001
+        //지역 및 배송기사에 할당된 주문을 찾는다. 
         [HttpGet("DID/{id}/{DID}")]
-        public async Task<ActionResult<ORDERL>> GetORDERL(string id,string DID)
+        public async Task<ActionResult<ORDERL>> GetORDERL(string id, string DID)
         {
-            var oRDERL = await _context.ORDERL.FirstOrDefaultAsync(o => o.DELIVER_ID == DID);
+            if (id == "1") { 
+                var oRDERL = await _context.ORDERL.FirstOrDefaultAsync(o => o.AREA_ID == DID);
+                //지역에 할당된 주문을 찾는다. GET: api/ORDERLs/DID/1/01
+                if (oRDERL == null)
+                {
+                    //return BadRequest();
+                    return NotFound();
+                }
 
-            if (oRDERL == null)
+                return oRDERL;
+            }else if (id == "2") {
+                //배송기사에게 할당된 주문을 찾는다. GET: api/ORDERLs/DID/2/880001
+                var oRDERL = await _context.ORDERL.FirstOrDefaultAsync(o => o.DELIVER_ID == DID);
+
+                if (oRDERL == null)
+                {
+                    //return BadRequest();
+                    return NotFound();
+                }
+
+                return oRDERL;
+            }
+            else
             {
-                //return BadRequest();
                 return NotFound();
             }
-
-            return oRDERL;
         }
 
         [HttpGet()]
